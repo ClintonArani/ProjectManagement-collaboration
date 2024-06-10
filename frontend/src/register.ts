@@ -83,33 +83,3 @@ registrationForm.addEventListener("submit", (e) => {
 function navigateToLogin() {
     window.location.href = 'log.html';
 }
-function fetchAndDisplayUserName() {
-    // Retrieve user ID from local storage
-    const user_id = localStorage.getItem('id');
-    if (!user_id) {
-        console.error('User ID not found in local storage.');
-        return;
-    }
-
-    // Fetch user data from the API
-    fetch(`http://localhost:5300/users/${user_id}`, {
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        method: "GET"
-    })
-    .then(response => response.json())
-    .then(user => {
-        // Update the welcome message with the user's first name and last name
-        const welcomeNameElement = document.getElementById('welcome-name') as HTMLSpanElement;
-        welcomeNameElement.textContent = `${user.FirstName} ${user.LastName}`;
-    })
-    .catch(error => {
-        console.error('Error fetching user data:', error);
-    });
-}
-
-// Call the function on page load
-document.addEventListener('DOMContentLoaded', fetchAndDisplayUserName);
-

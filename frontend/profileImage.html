@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>profile Image</title>
+    <style>
+        .main{
+            border: solid 2px #2d0039;
+            margin: 0 25rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 3rem;
+            margin-top: 4rem;
+            border-radius: 10px;
+        }
+        .profile{
+            width: 30vw;
+            height: 43vh;
+            display: flex;
+            flex-direction: column;
+            padding-top: 2rem;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+        }
+        img {
+            margin-bottom: rem;
+            width: 24rem;
+            background: transparent;
+        }
+        span{
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: large;
+        }
+        .para1{
+            font-weight: bold;
+            font-family: Elephant;
+            text-transform: capitalize;
+        }
+        .para2{
+            font-weight: bold;
+            font-family: algerian;
+            text-transform: capitalize;
+            color: #b60762;
+            font-size: large;
+            
+        }
+        h1{
+            text-align: center;
+        }
+        #close-sign {
+            font-size: 30px;
+            font-weight: bold;
+            color: red;
+            cursor: pointer;
+            margin-left: 42rem;
+            margin-top: -3rem;
+        }
+
+        /* Optionally, you can add hover effects */
+        #close-sign:hover {
+            color: darkred;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h1>my profile</h1>
+        <span id="close-sign">X</span>
+
+        <div class="profile">
+            <img id="profile-image" src="">
+            <span><p class="para1">profile name:</p><p class="para2" id="welcome-name"></p></span>
+        </div>
+    </div>
+    <script>
+        const loginButton = document.getElementById('close-sign')
+            if (loginButton) {
+            loginButton.addEventListener('click', () => {
+            window.location.href = 'users.html';
+        });
+}
+    </script>
+
+    <script type="module" src="./dist/users.js"></script>
+</body>
+</html>

@@ -17,7 +17,7 @@
         <div class="navlinks">
             <div class="IconSection">
                 <ion-icon name="person-circle-outline" class="Icon"></ion-icon>
-                <p>Profile</p>
+                <p id="profile-area">Profile</p>
             </div>
             <div class="IconSection">
                 <ion-icon name="analytics-outline" class="Icon"></ion-icon>
@@ -52,7 +52,8 @@
             </div>
             <div class="profileSection">
                 <ion-icon name="notifications-outline" class="notifications"></ion-icon>
-                <div class="profile"></div>
+                <img class="profile" id="profile-image">
+                
             </div>
         </div>
         <div class="body">
@@ -62,7 +63,8 @@
                 </div>
                 <div class="calender">
                     <ion-icon name="calendar-outline" class="calenderIcon"></ion-icon>
-                    <p>22nd November 2024</p>
+                    <p id="current-date-time"></p>
+
                 </div>
             </div>
             <div class="stats">
@@ -100,6 +102,8 @@
     </main>
     <script type="module" src="./dist/register.js"></script>
     <script type="module" src="./dist/userlogout.js"></script>
+    <script type="module" src="./dist/users.js"></script>
+
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
