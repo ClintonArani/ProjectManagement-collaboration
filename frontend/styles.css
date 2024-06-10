@@ -1,0 +1,435 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ 
+body {
+    font-family: Arial, sans-serif;
+    /* overflow: hidden; */
+    height: 100vh;
+}
+ 
+/* ************ TOPBAR *************** */
+.topbar {
+    height: 3rem;
+    width: 100%;
+    background-color: #6666ff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    position: fixed;
+}
+ 
+.topbar h3 {
+    color: #fff;
+}
+ 
+.topbar #mailMessage {
+    color: white;
+}
+ 
+.profile-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #fff;
+}
+ 
+.profile-area img {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+}
+ 
+/* ************ MAIN CONTAINER *************** */
+.main {
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Ensure the main container takes full height */
+}
+.bodyContent {
+    display: flex;
+    flex: 1; /* Ensure bodyContent takes the remaining height */
+    width: 100%;
+}
+ 
+/* ************ SIDEBAR *************** */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    width: 15%;
+    height: 100%; /* Ensure sidebar takes full height */
+    padding-top: 6rem;
+    color: #fff;
+    overflow-y: auto;
+    position: fixed;
+    background-color: #333333;
+    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
+}
+ 
+.sidebar > .home {
+    height: 2.5rem;
+    /* background-color: #ff3333; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 2rem;
+}
+ 
+.sidebar p {
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    text-transform: capitalize;
+}
+ 
+.sidebar .create-project,
+.sidebar .update-project,
+.sidebar .delete-project {
+    height: 2.5rem;
+    background-color: #333333;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 10px;
+    text-transform: capitalize;
+    cursor: pointer;
+}
+ 
+.sidebar .logout {
+    height: 2.5rem;
+    width:100%;
+    background-color: #6666ff;
+    text-transform: capitalize;
+    margin-top: 15rem;
+    align-items: center;
+    cursor: pointer;  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* ************ CONTENT SECTION *************** */
+.mainContent {
+    flex-grow: 1;
+    /* overflow-y: scroll;  */
+    padding: 1rem;
+    margin-left: 15%;
+    margin-top: 3rem;
+}
+.content {
+    display: flex;
+    flex: 1;
+}
+ 
+.card-section,
+.tables {
+    flex: 1;
+}
+ 
+.card-section {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 30px;
+}
+ 
+.card1,
+.card3 {
+     /* background-color: #333333;; */
+     color:white;
+    width: 20%;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+    transition: all 0.3s ease;
+}
+ 
+.card1:hover,
+.card3:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+ 
+.card-section .card1 p,
+.card-section .card3 p {
+    color: #333;
+    font-weight: bold;
+}
+ 
+.number-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+}
+ 
+.number-item .icon {
+    font-size: 1.5rem;
+    color: #ccc;
+    color: white;
+}
+ 
+.number-item .itemNumber {
+    font-size: 1.5rem;
+    /* color: #666; */
+}
+ 
+.tables {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+ 
+.tables .userTable {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+ 
+.tables .userTable p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+ 
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+ 
+table th,
+table td {
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+ 
+table th {
+    background-color: #6666ff;
+    color: #fff;
+}
+ 
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+ 
+table tr:hover {
+    background-color: #f2f2f2;
+}
+ 
+.visibility-Area {
+    display: flex;
+    margin-top: 80px;
+    width: 100%;
+}
+ 
+.visibility-Area > .assigment {
+    width: 35rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    box-shadow: 1px 1px 2px 1px #d6d9df;
+    background-color: #F8F8FF;
+    margin-bottom: 2rem;
+}
+ 
+.assigment > .dropdowns {
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+}
+ 
+.userDropDown, .projectDropDown {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+ 
+.projectDropDown, .userDropDown > label {
+    font-size: large;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    color: blue;
+}
+ 
+.assigment button {
+    margin-top: 7rem;
+    height: 3rem;
+    width: 12rem;
+    background-color: #6666ff;
+    border: none;
+    color: #fff;
+    font-size: large;
+    border-radius: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all ease-in-out 0.5s;
+}
+ 
+.assigment button:hover {
+    background-color: blue;
+}
+.projects button{
+    background: none;
+    border: none;
+    color: white;
+    padding-top: 10px;
+    padding-right: 60px;
+    padding-left: 60px;
+    padding-bottom: 10px;
+}
+.projects :hover{
+    background-color: #06065a;
+}
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.button {
+    margin: 5px;
+}
+
+
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    .topbar h3, .topbar .profile-area, .topbar #mailMessage {
+        margin-left: 0;
+    }
+    .sidebar {
+        width: 100px;
+        padding-top: 3rem;
+    }
+    .sidebar > p {
+        margin-left: 1rem;
+    }
+    .sidebar > .logout {
+        margin-top: 5rem;
+    }
+    .card-section {
+        margin-left: 6rem;
+        padding-left: 2rem;
+        flex-wrap: wrap;
+        gap: 2rem;
+    }
+    .visibility-Area {
+        flex-direction: column;
+        margin-left: 2rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+    .visibility-Area .tables {
+        width: 100%;
+    }
+    .visibility-Area .assigment {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+        height: auto;
+        padding: 1rem;
+    }
+    .topbar h3 {
+        margin-left: 0;
+        font-size: 1.2rem;
+    }
+    .topbar #mailMessage {
+        margin-left: 0;
+    }
+    .topbar .profile-area {
+        margin-right: 0;
+        gap: 5px;
+        font-size: 0.8rem;
+    }
+    .sidebar {
+        width: 80px;
+    }
+    .sidebar .home, .sidebar .create-project, .sidebar .update-project, .sidebar .delete-project, .sidebar .logout {
+        height: 2rem;
+    }
+    .sidebar p {
+        margin-left: 0.5rem;
+    }
+    .card-section {
+        margin-left: 4rem;
+        padding-left: 1rem;
+        gap: 1rem;
+    }
+    .card-section .card1, .card-section .cardEven {
+        width: 8rem;
+        height: 4rem;
+    }
+    .visibility-Area {
+        margin-left: 1rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    .visibility-Area .tables, .visibility-Area .assigment {
+        width: 100%;
+    }
+    .tables .userTable, .tables .projectTable {
+        gap: 0.5rem;
+    }
+    .tables .userTable p, .tables .projectTable p {
+        font-size: 1rem;
+    }
+    .assigment .dropdowns {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    .assigment button {
+        width: 100%;
+        margin-top: 1rem;
+    }
+}

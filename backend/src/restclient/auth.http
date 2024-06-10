@@ -1,0 +1,14 @@
+### LOGIN
+POST http://localhost:5300/auth/login 
+Content-Type: application/json
+
+{
+    "email": "clintonomari420@gmail.com",
+    "password": "Billservice@12"
+}
+
+
+### Check token details
+GET http://localhost:5300/auth/check-details 
+Content-Type: application/json
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI3MDRiMDA4LWRjNmItNDE2ZC04YjZkLWU1YjY1YTVlOTZlMSIsIkZpcnN0TmFtZSI6IkJpbGwiLCJMYXN0TmFtZSI6IkNsaW50b24iLCJlbWFpbCI6ImNsaW50b25vbWFyaTQyMEBnbWFpbC5jb20iLCJ1c2VyX2ltYWdlIjoiaW1hZ2UyICIsImlzQXNzaWduZWRQcm9qZWN0IjpudWxsLCJyb2xlIjoidXNlciIsImlzQ3JlYXRlZCI6IjAiLCJwcm9qZWN0X2lkIjpudWxsLCJpYXQiOjE3MTc5ODkyNTUsImV4cCI6MTcxNzk5NjQ1NX0.C6zUC0VWay8_2BMVw7rDhMXsPsEwVSpYTay2jUHxaHs

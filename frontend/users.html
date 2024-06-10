@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users</title>
+    <link rel="stylesheet" href="users.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="nav">
+        <div class="logo">
+            <h2>ProjectPulse</h2>
+        </div>
+        <div class="navlinks">
+            <div class="IconSection">
+                <ion-icon name="person-circle-outline" class="Icon"></ion-icon>
+                <p>Profile</p>
+            </div>
+            <div class="IconSection">
+                <ion-icon name="analytics-outline" class="Icon"></ion-icon>
+                <p>My Tasks</p>
+            </div>
+            <div class="IconSection">
+                <ion-icon name="mail-outline" class="Icon"></ion-icon>
+                <p>Email</p>
+            </div>
+        </div>
+        <div class="help">
+            <div class="IconSection">
+                <ion-icon name="help-circle-outline" class="Icon"></ion-icon>
+                <p>Help</p>
+            </div>
+            <div class="IconSection">
+                <ion-icon name="settings-outline" class="Icon"></ion-icon>
+                <p>Settings</p>
+            </div>
+            <div id="logout" class="IconSection">
+                <ion-icon name="log-out-outline" class="Icon"></ion-icon>
+                <p>Logout</p>
+            </div>
+        </div>
+    </div>
+    <main>
+        <div class="searchDiv">
+            <div class="searchInput">
+                <label for="search"></label>
+                <input type="text" placeholder="Search" id="search">
+                <ion-icon name="search-outline" class="searchIcon"></ion-icon>
+            </div>
+            <div class="profileSection">
+                <ion-icon name="notifications-outline" class="notifications"></ion-icon>
+                <div class="profile"></div>
+            </div>
+        </div>
+        <div class="body">
+            <div class="head">
+                <div class="welcome">
+                    <h1>Welcome, <span id="welcome-name"></span></h1>
+                </div>
+                <div class="calender">
+                    <ion-icon name="calendar-outline" class="calenderIcon"></ion-icon>
+                    <p>22nd November 2024</p>
+                </div>
+            </div>
+            <div class="stats">
+                <div class="stat stat1">
+                    <h3>Total projects</h3>
+                    <h4>3</h4>
+                </div>
+                <div class="stat stat2">
+                    <h3>Current Project</h3>
+                    <h4>E-commerce</h4>
+                </div>
+                <div class="stat stat3">
+                    <h3>Remaining Days</h3>
+                    <h4>30</h4>
+                </div>
+            </div>
+            <div class="projects">
+                <h3>Assigned Project</h3>
+                <!-- <div class="project">
+                    <h3>No projects assigned yet</h3>
+                </div> -->
+                <div class="project">
+                    <div class="title">
+                        <h4>E-commerce Admin</h4>
+                        <div class="endDate">
+                            <p>End Date <strong>06/05/2024</strong></p>
+                            <ion-icon name="checkmark-circle" class="check"></ion-icon>
+                        </div>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo cupiditate corrupti fuga, molestiae molestias suscipit!</p>
+                    <button></button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script type="module" src="./dist/register.js"></script>
+    <script type="module" src="./dist/userlogout.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

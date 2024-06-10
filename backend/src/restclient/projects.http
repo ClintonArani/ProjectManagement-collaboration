@@ -1,0 +1,30 @@
+POST http://localhost:5300/projects/new-project
+Content-Type: application/json
+
+{
+  "project_name": "X Application ",
+  "project_description": "Come up with an interactive UI that is well intergrated with backend-API",
+  "project_end_date": "2024-06-23"
+}
+
+### Fetch All Projects Created
+GET http://localhost:5300/projects/all-projects
+Content-Type: application/json
+
+### Update Project by ID
+PUT http://localhost:5300/projects/update-project/de488436-69c1-41f7-a231-2e00c751ce0d
+Content-Type: application/json
+
+{
+  "project_name": "Project Account System",
+  "project_description": "Design an MSSQL database backend API",
+  "project_end_date": "2025-06-12"
+}
+
+### Delete project from database
+DELETE http://localhost:5300/projects/delete-project/de488436-69c1-41f7-a231-2e00c751ce0d
+Content-Type: application/json
+
+### Get project by ID
+GET http://localhost:5300/projects/one-project/3fab90df-3c32-443a-90f0-05e42db4fbbb
+Content-Type: application/json

@@ -1,0 +1,56 @@
+POST http://localhost:5300/users/create
+Content-Type: application/json
+
+{
+    "FirstName": "Bill",
+    "LastName": "Clinton",
+    "phone_number": "0791736576",
+    "email": "clintonomari420@gmail.com",
+    "password": "Billservice@12",
+    "user_image": "image2 "
+}
+
+### GET ALL USERS
+GET http://localhost:5300/users/all-users 
+Content-Type: application/json
+
+### LOGIN
+POST http://localhost:5300/auth/login 
+Content-Type: application/json
+
+{
+    "email": "clintonomari420@gmail.com",
+    "password": "Billservice@12"
+}
+
+
+### GET SINGLE USER 
+
+GET http://localhost:5300/users/b704b008-dc6b-416d-8b6d-e5b65a5e96e1
+Content-Type: application/json
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# ### SWITCH ROLES
+ 
+# PUT http://localhost:5300/users/switch-role
+# Content-Type: application/json
+
+# {
+#     "user_id": "0448d051-9b0a-4b85-8022-631d9ba86178"
+# }

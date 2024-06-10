@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Management System</title>
+    <!-- ******************FONT AWESOME LINK************************* -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- ******************STYLES LINK************************* -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="main">
+        <div class="topbar">
+            <h3>Project Management System</h3>
+            <i id="mailMessage" class="fa fa-envelope" aria-hidden="true"></i>
+            <div class="profile-area">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSn4QomCV4XXUX_pKl7EEdfQ5CeYjy5U_-SrA&s" alt="">
+                <p>Welcome, Admin</p>
+            </div>
+        </div>
+
+        <!-- ********************SIDE-BAR******************************* -->
+        <div class="bodyContent">
+            <div class="sidebar">
+                <div class="home">
+                    <!-- <i class="fa fa-home" aria-hidden="true"></i> -->
+                    <p>home page</p>
+                </div>
+                <p>Features</p>
+                <div class="projects">
+                    <button id="projectsButton">Projects</button> 
+                </div>
+                <div id="logout" class="logout">
+                    <p>logout</p>
+                    <i class="fa fa-sign-out" aria-hidden="true" class="logout"></i>
+                </div>
+            </div>
+
+            <!-- *********************MAIN CONTENT*********************** -->
+            <div class="mainContent">
+                <div class="card-section">
+                    <div class="card1">
+                        <p>no of projects</p>
+                        <div class="number-item">
+                            <p class="icon"><i class="fa fa-list-ol" aria-hidden="true"></i></p>
+                            <p class="itemNumber">12</p>
+                        </div>
+                    </div>
+
+                    <div class="card1 cardEven">
+                        <p>no of Users</p>
+                        <div class="number-item">
+                            <p class="icon"><i class="fa fa-users" aria-hidden="true"></i></p>
+                            <p class="itemNumber">12</p>
+                        </div>
+                    </div>
+
+                    <div class="card1">
+                        <p>no of assigned projects</p>
+                        <div class="number-item">
+                            <p class="icon"><i class="fa fa-tasks" aria-hidden="true"></i></p>
+                            <p class="itemNumber">12</p>
+                        </div>
+                    </div>
+
+                    <div class="card1 cardEven">
+                        <p>no of assigned users</p>
+                        <div class="number-item">
+                            <p class="icon"><i class="fa fa-user-plus" aria-hidden="true"></i></p>
+                            <p class="itemNumber">12</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- *****************TABLES OF USERS AND PROJECTS ******************* -->
+                <div class="visibility-Area">
+                    <div class="tables">
+                        <div class="userTable">
+                            <p>user details</p>
+                            <table>
+                                <tr>
+                                    <th>Company</th>
+                                    <th>Contact</th>
+                                    <th>Country</th>
+                                </tr>
+                                <tr>
+                                    
+                                    <td>Alfreds Futterkiste</td>
+                                    <td>Maria Anders</td>
+                                    <td>Germany</td>
+                                </tr>
+                                <tr>
+                                    
+                                    <td>Centro comercial Moctezuma</td>
+                                    <td>Francisco Chang</td>
+                                    <td>Mexico</td>
+                                </tr>
+                                <tr>
+                                    
+                                    <td>Centro comercial Moctezuma</td>
+                                    <td>Francisco Chang</td>
+                                    <td>Mexico</td>
+                                </tr>
+                            </table>
+                        </div>
+                       
+                        <div class="userTable">
+                            <p>project details</p>
+                            <table>
+                                <tr>
+                                    
+                                    <th>Company</th>
+                                    <th>Contact</th>
+                                    <th>Country</th>
+                                </tr>
+                                <tr>
+                                    
+                                    <td>Alfreds Futterkiste</td>
+                                    <td>Maria Anders</td>
+                                    <td>Germany</td>
+                                </tr>
+                                <tr>
+                                
+                                    <td>Centro comercial Moctezuma</td>
+                                    <td>Francisco Chang</td>
+                                    <td>Mexico</td>
+                                </tr>
+                                <tr>
+                                    <td>Centro comercial Moctezuma</td>
+                                    <td>Francisco Chang</td>
+                                    <td>Mexico</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="assigment">
+                        <div class="dropdowns">
+                            <div class="userDropDown">
+                                <label for="users">Choose a user:</label>
+                                <select name="users" id="users">
+                                    <option value="1">Clinton Omari</option>
+                                    <option value="2">Felix Okoth</option>
+                                    <option value="3">Salome</option>
+                                    <option value="4">Lincorn Muhia</option>
+                                </select>
+                            </div>
+                            <div class="projectDropDown">
+                                <label for="projects">Choose a project:</label>
+                                <select name="projects" id="projects">
+                                    <option value="1">learn Javascript</option>
+                                    <option value="2">learn Python</option>
+                                    <option value="3">learn machine learning</option>
+                                    <option value="4">learn Artificial Intelligence</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button>Assign project</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Project Details</h2>
+            <table>
+                <tr>
+                    <th>Select</th>
+                    <th>Project Name</th>
+                    <th>Description</th>
+                    <th>Status</th>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="selectModalProject" value="1"></td>
+                    <td>Project A</td>
+                    <td>Development of A</td>
+                    <td>In Progress</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="selectModalProject" value="2"></td>
+                    <td>Project B</td>
+                    <td>Development of B</td>
+                    <td>Completed</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="selectModalProject" value="3"></td>
+                    <td>Project C</td>
+                    <td>Development of C</td>
+                    <td>Not Started</td>
+                </tr>
+            </table>
+            <button class="button">Create New Project</button>
+            <button class="button">Update Project</button>
+            <button class="button">Delete Project</button>
+        </div>
+    </div>
+
+    <script type="module" src="./dist/userlogout.js"></script>
+    <script type="module" src="./dist/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Management System</title>
+    <!-- ******************FONT AWESOME LINK************************* -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- ******************STYLES LINK************************* -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="main" style="background-color: hsl(0, 0%, 84%);">
+      <div class="topbar" style="height: 10vh">
+        <h3 style="font-size: 26px">Project Management System</h3>
+        <i id="mailMessage" class="fa fa-envelope" aria-hidden="true"></i>
+        <div class="profile-area">
+          <img src="../icons/profile.png" alt="" style="background-color: #fefefe;"/>
+        </div>
+      </div>
+
+      <div id="myModal" class="modal">
+        <div class="modal-content">
+          <h2>Hi, Admin ...</h2>
+          <div class="buttons_container">
+            <button class="button">Create New Project</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="dynamic-container">
+        <div class="header-part">
+          <h5>Manage | Projects .</h5>
+        </div>
+        <div class="dynamic-body" style=" width: auto;"></div>
+      </div>
+
+      <div class="promt-user-conatainer">
+        <form class="create-new-project-form">
+          <label for="name" style="font-weight: bold;">Project Name:*</label>
+          <input type="text" class="project_name">
+
+          
+          <label for="name" style="font-weight: bold;">Project Descriptiion:*</label>
+          <input type="text" class="project_description">
+
+          
+          <label for="name" style="font-weight: bold;">Project End-Date:*</label>
+          <input type="date" class="project_end_date">
+
+          <div class="buttons">
+            <input type="button" value="Create Project" class="submit_button">
+          <input type="button" value="Cancel Form" class="cancel">
+          </div>
+        </form>
+      </div>
+      <!-- updating projects -->
+      <div class="promt-user-conatainer1">
+        <form class="create-new-project-form1">
+          <label for="name" style="font-weight: bold;">Project Name:*</label>
+          <input type="text">
+
+          
+          <label for="name" style="font-weight: bold;">Project Descriptiion:*</label>
+          <input type="text">
+
+          
+          <label for="name" style="font-weight: bold;">Project End-Date:*</label>
+          <input type="date">
+
+          <div class="buttons">
+            <input type="button" value="Create Project" class="submit_button">
+          <input type="button" value="Cancel Form" class="cancel">
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="../../dist/admin/admin.js"></script>
+    <script src="../../dist/admin/admin.functionality.js"></script>
+  </body>
+</html>

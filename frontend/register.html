@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Form</title>
+    <link rel="stylesheet" href="./register.css">
+</head>
+<body>
+    <div class="registerform" id="registerform">
+        <form class="registrationForm" id="registrationForm">
+            <h1 style="text-align: center;">User Registration</h1>
+            <p class="success-msg"></p>
+            <p class="error-msg"></p>
+            
+            <label for="firstname">First Name:</label>
+            <input type="text" name="firstname" id="firstname" autocomplete="off">
+
+            <label for="lastname">Last Name:</label>
+            <input type="text" name="lastname" id="lastname" autocomplete="off">
+
+            <label for="phonenumber">Phone Number:</label>
+            <input type="text" name="phonenumber" id="phonenumber" autocomplete="off">
+
+            <label for="email">Email:</label>
+            <input type="text" name="email" id="email" autocomplete="off">
+
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" autocomplete="off">
+
+            <label for="image">Image URL:</label>
+            <input type="text" name="image" id="image" autocomplete="off">
+
+            <input type="submit" value="Register">
+        </form>
+    </div>
+    <script type="module" src="dist/register.js"></script>
+</body>
+</html>

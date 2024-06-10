@@ -1,0 +1,51 @@
+let user_firstname = document.getElementById("firstname") as HTMLElement;
+let user_lastname = document.getElementById("lastname") as HTMLElement;
+let user_image = document.getElementById("image") as HTMLElement;
+let user_phonenumber = document.getElementById("phonenumber") as HTMLElement;
+let user_email = document.getElementById("email") as HTMLElement;
+let user_password = document.getElementById("password") as HTMLElement;
+
+let registrationForm = document.getElementById("registrationForm") as HTMLFormElement;
+
+registrationForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    // Type casting to access 'value' property
+    let firstname = (user_firstname as HTMLInputElement).value.trim();
+    let lastname = (user_lastname as HTMLInputElement).value.trim();
+    let imageInput = user_image as HTMLInputElement;
+    let image = imageInput.files ? imageInput.files[0] : null;
+    let phone = (user_phonenumber as HTMLInputElement).value.trim();
+    let email = (user_email as HTMLInputElement).value.trim();
+    let password = (user_password as HTMLInputElement).value.trim();
+
+    let user = firstname !== '' && lastname !== '' && image !== null && phone !== '' && email !== '' && password !== '';
+
+    if (user) {
+        console.log("Form is valid, sending data...");
+
+        let formData = new FormData();
+        formData.append("FirstName", firstname);
+        formData.append("LastName", lastname);
+        if (image) {  // Check if image is not null before appending
+            formData.append("Image", image);
+        }
+        formData.append("PhoneNumber", phone);
+        formData.append("Email", email);
+        formData.append("Password", password);
+
+        fetch("http://localhost:5300/users/create", {
+            method: "POST",
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data.message);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    } else {
+        console.error('Form validation failed');
+    }
+});

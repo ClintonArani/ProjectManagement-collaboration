@@ -1,0 +1,41 @@
+{
+<<<<<<< HEAD
+    "sqltools.connections": [
+        {
+            "mssqlOptions": {
+                "appName": "SQLTools",
+                "useUTC": true,
+                "encrypt": true,
+                "instanceName": "MSSQLSERVER03"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 1433,
+            "driver": "MSSQL",
+            "name": "MSSQLSERVER03",
+            "database": "projectManagement",
+            "username": "admin"
+        }
+    ]
+}
+=======
+  "sqltools.connections": [
+    {
+      "mssqlOptions": {
+        "appName": "SQLTools",
+        "useUTC": true,
+        "encrypt": true,
+        "instanceName": "XHR"
+      },
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 1433,
+      "askForPassword": true,
+      "driver": "MSSQL",
+      "name": "XHR",
+      "username": "root",
+      "database": "projectmanagement"
+    }
+  ]
+}
+>>>>>>> 161261a74040669d8eebdf25a8b5e3e63e14193f
