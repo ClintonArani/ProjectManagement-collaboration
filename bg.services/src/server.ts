@@ -11,15 +11,13 @@ const app = express();
 const run = async()=>{
     cron.schedule('*/2 * * * *',async()=>{
         console.log('checking the database for new users');
-        
+        await welcomeUser();
     })
-    await welcomeUser();
 
     cron.schedule('*/2 * * * *', async () => {
         console.log('Checking the database for assigned projects');
-       
+        await assignedProject();
     });
-    await assignedProject();
 
 
 }
