@@ -80,10 +80,10 @@ async function retrieveUserDetails(): Promise<{ firstName: string; lastName: str
 // Function to update the welcome message on the HTML page
 async function updateUserWelcomeMessage() {
     try {
-        // Retrieve user details including first name, last name, and user image
+        
         const { firstName, lastName, userImage } = await retrieveUserDetails();
 
-        // Update welcome message on the HTML page
+        
         const welcomeNameElement = document.getElementById('welcome-name');
         if (welcomeNameElement) {
             welcomeNameElement.textContent = `${firstName} ${lastName}`;
