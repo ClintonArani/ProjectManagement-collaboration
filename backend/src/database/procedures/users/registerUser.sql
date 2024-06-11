@@ -15,4 +15,3 @@ BEGIN
     VALUES (@id, @FirstName, @LastName, @phone_number, @email, @password, @user_image, 0, 'user', 0, @createdAt, @project_id);
 END
 
-DROP PROCEDURE registerUser;
