@@ -8,4 +8,4 @@ create table project_table(
 	project_assigned bit default 0
 	)
 
--- DROP TABLE project_table
+DROP TABLE project_table

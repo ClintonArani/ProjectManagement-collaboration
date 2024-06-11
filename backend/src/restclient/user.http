@@ -2,12 +2,12 @@ POST http://localhost:5300/users/create
 Content-Type: application/json
 
 {
-    "FirstName": "Bill",
-    "LastName": "Clinton",
-    "phone_number": "0792536576",
+    "FirstName": "Clinton",
+    "LastName": "Omari",
+    "phone_number": "0722355244",
     "email": "clintonarani@gmail.com",
-    "password": "Billservice@12",
-    "user_image": "image2 "
+    "password": "Billservice@15",
+    "user_image": "image5 "
 }
 
 ### GET ALL USERS

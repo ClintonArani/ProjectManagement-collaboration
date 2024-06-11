@@ -3,6 +3,7 @@ import cors from 'cors'
 import user_router from "./routers/user.router";
 import auth_router from "./routers/auth.router"; // Import the auth router
 import { my_route } from "./routers/project.route";
+import notifications from "./routers/notifications";
 
 const app = express();
 app.use(json());
@@ -12,6 +13,7 @@ app.use(cors())
 app.use('/users', user_router);
 app.use('/auth', auth_router); // Use the auth router for authentication routes
 app.use('/projects', my_route)
+app.use('/api', notifications);
 
 // Add logging middleware to capture request details
 app.use((req: Request, res: Response, next: NextFunction) => {
