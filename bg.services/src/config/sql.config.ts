@@ -8,13 +8,13 @@ dotenv.config();
 console.log('DB_USER:', process.env.DB_USER);
 console.log('DB_PWD:', process.env.DB_PWD);
 console.log('DB_NAME:', process.env.DB_NAME);
-console.log('PM_SERVER:', process.env.PM_SERVER);
+console.log('MS_SERVER:', process.env.MS_SERVER);
 
 export const sqlConfig = {
   user: process.env.DB_USER as string,
   password: process.env.DB_PWD as string,
   database: process.env.DB_NAME as string,
-  server: process.env.PM_SERVER as string,
+  server: process.env.MS_SERVER as string,
   pool: {
     max: 10,
     min: 0,

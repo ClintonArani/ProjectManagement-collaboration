@@ -4,8 +4,8 @@ Content-Type: application/json
 {
     "FirstName": "Bill",
     "LastName": "Clinton",
-    "phone_number": "0791736576",
-    "email": "clintonomari420@gmail.com",
+    "phone_number": "0792536576",
+    "email": "clintonarani@gmail.com",
     "password": "Billservice@12",
     "user_image": "image2 "
 }

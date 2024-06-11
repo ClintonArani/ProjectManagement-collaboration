@@ -15,3 +15,4 @@ BEGIN
     VALUES (@id, @FirstName, @LastName, @phone_number, @email, @password, @user_image, @isAssignedProject, 'user', 0, @createdAt, @project_id);
 END
 
+drop procedure if exists registerUser;
