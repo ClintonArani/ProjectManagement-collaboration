@@ -73,4 +73,35 @@ export class userController {
         }
     }  
 
+    async getUnAssignedUsers(req: Request, res: Response) {
+        try {
+            let response = await service.fetchUnsignedUsers();
+
+            return res.json(response)
+        } catch (error) {
+            return res.json({
+                error
+            })
+        }
+    }
+
+    async assignUser(req: Request, res: Response) {
+        try {
+            let { project_id, user_id } = req.body;
+
+            let change = {
+                project_id,
+                user_id
+            }
+
+            let response = await service.setUserToAssigned(change);
+
+            return res.json(response);
+        } catch (error) {
+            return res.json({
+                error
+            })
+        }
+    }
+
 }

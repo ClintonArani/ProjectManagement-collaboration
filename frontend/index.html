@@ -77,59 +77,24 @@
                 <div class="visibility-Area">
                     <div class="tables">
                         <div class="userTable">
-                            <p>user details</p>
-                            <table>
+                            <p>Users (Not Assigned)*</p>
+                            <table class="users_table">
                                 <tr>
-                                    <th>Company</th>
-                                    <th>Contact</th>
-                                    <th>Country</th>
-                                </tr>
-                                <tr>
-                                    
-                                    <td>Alfreds Futterkiste</td>
-                                    <td>Maria Anders</td>
-                                    <td>Germany</td>
-                                </tr>
-                                <tr>
-                                    
-                                    <td>Centro comercial Moctezuma</td>
-                                    <td>Francisco Chang</td>
-                                    <td>Mexico</td>
-                                </tr>
-                                <tr>
-                                    
-                                    <td>Centro comercial Moctezuma</td>
-                                    <td>Francisco Chang</td>
-                                    <td>Mexico</td>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Email</th>
                                 </tr>
                             </table>
                         </div>
                        
                         <div class="userTable">
-                            <p>project details</p>
-                            <table>
+                            <p>Projects (Not Assigned)*</p>
+                            <table class="projects_table">
                                 <tr>
                                     
-                                    <th>Company</th>
-                                    <th>Contact</th>
-                                    <th>Country</th>
-                                </tr>
-                                <tr>
-                                    
-                                    <td>Alfreds Futterkiste</td>
-                                    <td>Maria Anders</td>
-                                    <td>Germany</td>
-                                </tr>
-                                <tr>
-                                
-                                    <td>Centro comercial Moctezuma</td>
-                                    <td>Francisco Chang</td>
-                                    <td>Mexico</td>
-                                </tr>
-                                <tr>
-                                    <td>Centro comercial Moctezuma</td>
-                                    <td>Francisco Chang</td>
-                                    <td>Mexico</td>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                    <th>End Date</th>
                                 </tr>
                             </table>
                         </div>
@@ -140,63 +105,18 @@
                             <div class="userDropDown">
                                 <label for="users">Choose a user:</label>
                                 <select name="users" id="users">
-                                    <option value="1">Clinton Omari</option>
-                                    <option value="2">Felix Okoth</option>
-                                    <option value="3">Salome</option>
-                                    <option value="4">Lincorn Muhia</option>
                                 </select>
                             </div>
                             <div class="projectDropDown">
                                 <label for="projects">Choose a project:</label>
                                 <select name="projects" id="projects">
-                                    <option value="1">learn Javascript</option>
-                                    <option value="2">learn Python</option>
-                                    <option value="3">learn machine learning</option>
-                                    <option value="4">learn Artificial Intelligence</option>
                                 </select>
                             </div>
                         </div>
-                        <button>Assign project</button>
+                        <button class="assignbtn">Assign project</button>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <!-- The Modal -->
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Project Details</h2>
-            <table>
-                <tr>
-                    <th>Select</th>
-                    <th>Project Name</th>
-                    <th>Description</th>
-                    <th>Status</th>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="selectModalProject" value="1"></td>
-                    <td>Project A</td>
-                    <td>Development of A</td>
-                    <td>In Progress</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="selectModalProject" value="2"></td>
-                    <td>Project B</td>
-                    <td>Development of B</td>
-                    <td>Completed</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="selectModalProject" value="3"></td>
-                    <td>Project C</td>
-                    <td>Development of C</td>
-                    <td>Not Started</td>
-                </tr>
-            </table>
-            <button class="button">Create New Project</button>
-            <button class="button">Update Project</button>
-            <button class="button">Delete Project</button>
         </div>
     </div>
 
