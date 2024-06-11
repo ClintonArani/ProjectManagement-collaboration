@@ -9,3 +9,5 @@ create table project_table(
 	)
 
 -- DROP TABLE project_table
+
+select * from project_table;

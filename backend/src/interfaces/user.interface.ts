@@ -25,3 +25,8 @@ export interface token_details{
   role:string
 }
 
+export interface changes {
+  user_id: string,
+  project_id: string
+}
+

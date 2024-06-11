@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start:build": "tsc --watch",
-    "start:run": "nodemon dist/server.js",
+    "start:run": "nodemon ./dist/server.js",
     "start": "concurrently npm:start:*",
     "test": ""
   },
@@ -16,15 +16,18 @@
   "author": "okothfx",
   "license": "ISC",
   "dependencies": {
+    "@types/bcrypt": "^5.0.2",
     "@types/bcryptjs": "^2.4.6",
+    "@types/concurrently": "^7.0.0",
     "@types/cors": "^2.8.17",
     "@types/dotenv": "^8.2.0",
     "@types/express": "^4.17.21",
     "@types/joi": "^17.2.3",
     "@types/jsonwebtoken": "^9.0.6",
-    "@types/lodash": "^4.17.4",
+    "@types/lodash": "^4.17.5",
     "@types/mssql": "^9.1.5",
     "@types/uuid": "^9.0.8",
+    "bcrypt": "^5.1.1",
     "bcryptjs": "^2.4.3",
     "concurrently": "^8.2.2",
     "cor": "^0.0.0",
