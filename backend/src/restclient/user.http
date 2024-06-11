@@ -2,10 +2,17 @@ POST http://localhost:5300/users/create
 Content-Type: application/json
 
 {
+<<<<<<< HEAD
+    "FirstName": "Bill",
+    "LastName": "Clinton",
+    "phone_number": "0792536576",
+    "email": "clintonarani@gmail.com",
+=======
     "FirstName": "Patrick",
     "LastName": "Jane",
     "phone_number": "0733736576",
     "email": "janepatrick@gmail.com",
+>>>>>>> dffbace613e6ebe82bd285e8b4c07845d4eca85d
     "password": "Billservice@12",
     "user_image": "image2 "
 }

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Assignment</title>
+</head>
+<body style="font-family: Arial, sans-serif; font-size: 16px; line-height: 1.6; color: #333;">
+    <table style="width: 100%; max-width: 600px; margin: auto; border-collapse: collapse;">
+        <tr>
+            <th style="padding: 20px; background-color: #f8f8f8; text-align: left; font-size: 24px; border-bottom: 1px solid #ddd;">
+                Project Assignment: <%= project_name %>
+            </th>
+        </tr>
+        <tr>
+            <td style="padding: 20px; text-align: left;">
+                <p style="font-size: 18px; margin: 0 0 20px;">Hi, <%= firstName %></p>
+                <p style="font-size: 16px; margin: 0 0 20px;">You have been assigned a new project:</p>
+                <p style="font-size: 16px; margin: 0 0 20px;"><strong>Project Name:</strong> <%= project_name%></p>
+                <p style="font-size: 16px; margin: 0 0 20px;"><strong>Project Description:</strong> <%= project_description %></p>
+                <p style="font-size: 16px; margin: 0 0 20px;"><strong>End Date:</strong> <%=project_end_date %></p>
+                <p style="font-size: 16px; margin: 0 0 20px;">Please log in to your account to view more details.</p>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
