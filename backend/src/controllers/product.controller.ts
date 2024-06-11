@@ -98,3 +98,35 @@ export const fetchProjectByID = async (req: Request, res: Response) => {
   }
 
 }
+
+export const getUnAssignedProjects = async (req: Request, res: Response) => {
+  
+  try {
+    let unAssignedProjects = await productSetter.fetchUnAssignedProjects();
+
+    return res.status(201).json({
+      un_assigned_projects: unAssignedProjects
+    }
+    )
+  } catch (error) {
+    return res.json({
+      error: error
+    })
+  }
+
+}
+
+export const assignProject = async (req: Request, res: Response) => {
+  
+  try {
+    let {project_id} = req.params;
+
+    let result = await productSetter.setAssigned(project_id);
+
+    res.json(result);
+  } catch (error) {
+    res.json({
+      error: error
+    })
+  }
+}

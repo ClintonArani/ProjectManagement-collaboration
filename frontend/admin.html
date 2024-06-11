@@ -13,12 +13,12 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="main" style="background-color: hsl(0, 0%, 84%);">
+    <div class="main" style="background-color: hsl(0, 0%, 84%); height: auto;">
       <div class="topbar" style="height: 10vh">
         <h3 style="font-size: 26px">Project Management System</h3>
         <i id="mailMessage" class="fa fa-envelope" aria-hidden="true"></i>
         <div class="profile-area">
-          <img src="../icons/profile.png" alt="" style="background-color: #fefefe;"/>
+          <img src="./icons/profile.png" alt="" style="background-color: #fefefe;"/>
         </div>
       </div>
 
@@ -41,15 +41,15 @@
       <div class="promt-user-conatainer">
         <form class="create-new-project-form">
           <label for="name" style="font-weight: bold;">Project Name:*</label>
-          <input type="text" class="project_name">
+          <input type="text" class="project_name" required>
 
           
           <label for="name" style="font-weight: bold;">Project Descriptiion:*</label>
-          <input type="text" class="project_description">
+          <input type="text" class="project_description" required>
 
           
           <label for="name" style="font-weight: bold;">Project End-Date:*</label>
-          <input type="date" class="project_end_date">
+          <input type="date" class="project_end_date" required>
 
           <div class="buttons">
             <input type="button" value="Create Project" class="submit_button">
@@ -61,25 +61,23 @@
       <div class="promt-user-conatainer1">
         <form class="create-new-project-form1">
           <label for="name" style="font-weight: bold;">Project Name:*</label>
-          <input type="text">
+          <input type="text"class="project_name1" required>
 
           
           <label for="name" style="font-weight: bold;">Project Descriptiion:*</label>
-          <input type="text">
+          <input type="text"class="project_description1" required>
 
           
           <label for="name" style="font-weight: bold;">Project End-Date:*</label>
-          <input type="date">
+          <input type="date"class="project_end_date1" required>
 
           <div class="buttons">
-            <input type="button" value="Create Project" class="submit_button">
-          <input type="button" value="Cancel Form" class="cancel">
+            <input type="button" value="Update Project" class="submit_button1">
+          <input type="button" value="Cancel Form" class="cancel1">
           </div>
         </form>
       </div>
     </div>
-
-    <script src="../../dist/admin/admin.js"></script>
-    <script src="../../dist/admin/admin.functionality.js"></script>
+    <script src="./dist/admin.functionality.js"></script>
   </body>
 </html>

@@ -14,6 +14,3 @@ CREATE TABLE users (
   FOREIGN KEY (project_id) REFERENCES project_table(project_id)
 );
 
-select * from users
-
-drop table users;

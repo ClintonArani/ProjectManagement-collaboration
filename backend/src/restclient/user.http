@@ -1,14 +1,6 @@
 POST http://localhost:5300/users/create
 Content-Type: application/json
 
-{
-    "FirstName": "Clinton",
-    "LastName": "Omari",
-    "phone_number": "0722355244",
-    "email": "clintonarani@gmail.com",
-    "password": "Billservice@15",
-    "user_image": "image5 "
-}
 
 ### GET ALL USERS
 GET http://localhost:5300/users/all-users 
@@ -29,7 +21,18 @@ Content-Type: application/json
 GET http://localhost:5300/users/b704b008-dc6b-416d-8b6d-e5b65a5e96e1
 Content-Type: application/json
 
+### GET ALL UnAssigned USERS
+GET http://localhost:5300/users/unsigned-users 
+Content-Type: application/json
 
+### Assign User A Project...
+PUT http://localhost:5300/users/set-assigned
+Content-Type: application/json
+
+{
+    "user_id": "12976839-cfc6-48ad-96d3-43247c32dffa",
+    "project_id": "9b2780fc-88a9-4478-984f-e7cef5e5ca9c"
+}
 
 
 

@@ -4,7 +4,7 @@ import {v4} from 'uuid'
 import bcrypt from 'bcryptjs'
 
 import { sqlConfig } from '../config/sql.config';
-import { User } from '../interfaces/user.interface';
+import { User, changes } from '../interfaces/user.interface';
 
 
 
@@ -113,6 +113,48 @@ export class userService{
                 users: result
             }
         }
+    }
+
+    async fetchUnsignedUsers() {
+
+        let pool = await mssql.connect(sqlConfig);
+
+        let result = (await pool.request().query(`select * from users where isAssignedProject = 0 `)).recordset;
+
+        if (result.length < 1) {
+            return {
+                message: "All users present have been assigned projects"
+            }
+        }
+        else {
+            return {
+                users: result
+            }
+        }
+    }
+
+    async setUserToAssigned(changes:changes) {
+
+        let user_id = changes.user_id;
+        let project_id = changes.project_id
+
+        let pool = await mssql.connect(sqlConfig);
+
+        let result = (await pool.request().query(`update users set isAssignedProject = 1, project_id = '${project_id}'
+            where id = '${user_id}'`)).rowsAffected;
+        
+        if (result[0] < 1) {
+            return {
+                error: "Unable to assign the project specified to the user"
+            }
+        }
+
+        else {
+            return {
+                message: "Assigning of project successfull."
+            }
+        }
+
     }
 
 }
