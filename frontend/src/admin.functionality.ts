@@ -1,3 +1,5 @@
+// let description_text = document.querySelector('.description_text') as HTMLParagraphElement;
+
 // div for displaying all users
 let dynamic_body = document.querySelector(".dynamic-body") as HTMLDivElement;
 
@@ -116,35 +118,42 @@ async function displayAllProjects() {
       let activityDiagram = document.createElement("div");
       activityDiagram.className = "activity-diagram";
 
+      let container1 = document.createElement("div");
+      container1.className = 'container1';
+
       let numberHolder = document.createElement("div");
       numberHolder.className = "number-holder";
 
       let numberView = document.createElement("h2");
-      numberView.textContent = `${index + 1}`;
+      numberView.textContent = `${index + 1}.`;
 
       let name_holder = document.createElement("div");
       name_holder.className = "name_holder";
 
       let project_name = document.createElement("h2");
       project_name.textContent = objectItem.project_name;
+      project_name.style.textDecoration = 'dotted'
+
+      let container2 = document.createElement("div");
+      container2.className = 'container2';
 
       let description_holder = document.createElement("div");
       description_holder.className = "description_holder";
 
       let project_description = document.createElement("p");
-      project_description.textContent = objectItem.project_description;
+      project_description.textContent = `Description: ${objectItem.project_description}`;
 
       let date_holder = document.createElement("div");
       date_holder.className = "date_holder";
 
       let end_date = document.createElement("p");
-      end_date.textContent = objectItem.project_end_date;
+      end_date.textContent = `End-Date: ${objectItem.project_end_date}`;
 
       let assigned_to_holder = document.createElement("div");
       assigned_to_holder.className = "assigned_to_holder";
 
       let assigned_to = document.createElement("p");
-      assigned_to.textContent = "... no assigned user yet ...";
+      assigned_to.textContent = "... ...";
 
       let buttons_holder = document.createElement("div");
       buttons_holder.className = "buttons_holder";
@@ -154,6 +163,15 @@ async function displayAllProjects() {
 
       let deletebtn = document.createElement("button");
       deletebtn.textContent = "Delete";
+      deletebtn.className = 'delete';
+      deletebtn.style.backgroundColor = 'hsl(0, 100%, 50%)'
+
+      container1.appendChild(numberHolder);
+      container1.appendChild(name_holder);
+
+      container2.appendChild(description_holder);
+      container2.appendChild(date_holder);
+      container2.appendChild(buttons_holder);
 
       numberHolder.appendChild(numberView);
       name_holder.appendChild(project_name);
@@ -163,12 +181,8 @@ async function displayAllProjects() {
       buttons_holder.appendChild(updatebtn);
       buttons_holder.appendChild(deletebtn);
 
-      activityDiagram.appendChild(numberHolder);
-      activityDiagram.appendChild(name_holder);
-      activityDiagram.appendChild(description_holder);
-      activityDiagram.appendChild(date_holder);
-      activityDiagram.appendChild(assigned_to_holder);
-      activityDiagram.appendChild(buttons_holder);
+      activityDiagram.appendChild(container1);
+      activityDiagram.appendChild(container2);
       dynamic_body.appendChild(activityDiagram);
 
       deletebtn.addEventListener("click", () => {
