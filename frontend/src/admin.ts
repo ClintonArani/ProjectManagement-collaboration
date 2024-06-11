@@ -1,259 +1,248 @@
 
-function getSelectedCheckboxes(name: string): string[] {
-    const checkboxes = document.querySelectorAll(`input[name="${name}"]:checked`) as NodeListOf<HTMLInputElement>;
-    const selectedValues: string[] = [];
-    checkboxes.forEach((checkbox) => {
-        selectedValues.push(checkbox.value);
-    });
-    return selectedValues;
-}
+let select_projects = document.getElementById('projects') as HTMLSelectElement;
+let select_users = document.getElementById('users') as HTMLSelectElement;
 
+let projects_table = document.querySelector('.projects_table') as HTMLTableElement;
+let users_table = document.querySelector('.users_table') as HTMLTableElement;
 
-const selectedUsers = getSelectedCheckboxes("selectUser");
-const selectedProjects = getSelectedCheckboxes("selectProject");
-console.log(selectedUsers, selectedProjects);
+let assignbtn = document.querySelector('.assignbtn') as HTMLButtonElement;
+
+let projectsbtn = document.getElementById('projectsButton') as HTMLButtonElement;
 
 
 
-//extracting data from database and displaying it into project table
-interface Project {
-    project_name: string;
-    project_description: string;
-    project_end_date: string;
-    project_assigned: boolean;
-}
+async function displayOnUsersDropdown() {
+  try {
+    let options = await fetch('http://localhost:5300/users/unsigned-users', {
+      method: 'GET',
+      headers: {
+        "content-type": "application/json"
+      }
+    })
 
-document.addEventListener('DOMContentLoaded', () => {
-    const projectTableBody = document.querySelector<HTMLTableSectionElement>('#projectTable tbody');
-
-    if (!projectTableBody) {
-        console.error('Project table body not found');
-        return;
-    }
-
-    console.log('Project table body found, proceeding to fetch projects...');
-
-    const fetchProjects = async (): Promise<void> => {
-        try {
-            console.log('Fetching projects...');
-            const response = await fetch('http://localhost:5300/projects/all-projects', {
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            });
-
-            if (!response.ok) {
-                throw new Error('Network response was not ok ' + response.statusText);
-            }
-
-            const data = await response.json();
-            const projects: Project[] = data.projects;  // Adjust based on the actual response structure
-
-            console.log('Projects fetched successfully:', projects);
-            populateProjectTable(projects);
-        } catch (error) {
-            console.error('There was a problem with the fetch operation:', error);
-        }
-    };
-
-    const populateProjectTable = (projects: Project[]): void => {
-        console.log('Populating project table...');
-        projectTableBody.innerHTML = ''; // Clear any existing rows
-        projects.forEach(project => {
-            console.log('Adding project to table:', project);
-            const row = document.createElement('tr');
-
-            const nameCell = document.createElement('td');
-            nameCell.textContent = project.project_name;
-            row.appendChild(nameCell);
-
-            const descriptionCell = document.createElement('td');
-            descriptionCell.textContent = project.project_description;
-            row.appendChild(descriptionCell);
-
-            const endDateCell = document.createElement('td');
-            endDateCell.textContent = project.project_end_date;
-            row.appendChild(endDateCell);
-
-            const assignedCell = document.createElement('td');
-            assignedCell.textContent = project.project_assigned ? 'Yes' : 'No';
-            row.appendChild(assignedCell);
-
-            projectTableBody.appendChild(row);
-        });
-    };
-
-    fetchProjects();
-});
-
-
-
-//extracting data from database and displaying it into user table
-interface User {
-    id: string;
-    FirstName: string;
-    LastName: string;
-    phone_number: string;
-    email: string;
-    user_image: string;
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    const userTableBody = document.querySelector<HTMLTableSectionElement>('#userTable tbody');
-
-    if (!userTableBody) {
-        console.error('User table body not found');
-        return;
-    }
-
-    console.log('User table body found, proceeding to fetch users...');
-
-    const fetchUsers = async (): Promise<void> => {
-        try {
-            console.log('Fetching users...');
-            // Include query parameter 'limit=5' to limit the number of records fetched to 5
-            const response = await fetch('http://localhost:5300/users/all-users?limit=3', {
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            });
-
-            if (!response.ok) {
-                throw new Error('Network response was not ok ' + response.statusText);
-            }
-
-            const data = await response.json();
-            const users: User[] = data.users;
-
-            console.log('Users fetched successfully:', users);
-            populateUserTable(users);
-        } catch (error) {
-            console.error('There was a problem with the fetch operation:', error);
-        }
-    };
-
-    const populateUserTable = (users: User[]): void => {
-        console.log('Populating user table...');
-        userTableBody.innerHTML = ''; // Clear any existing rows
-        users.forEach(user => {
-            console.log('Adding user to table:', user);
-            const row = document.createElement('tr');
-
-            const firstNameCell = document.createElement('td');
-            firstNameCell.textContent = user.FirstName; // Adjust property name
-            row.appendChild(firstNameCell);
-
-            const lastNameCell = document.createElement('td');
-            lastNameCell.textContent = user.LastName; // Adjust property name
-            row.appendChild(lastNameCell);
-
-            const phoneNumberCell = document.createElement('td');
-            phoneNumberCell.textContent = user.phone_number; // Adjust property name
-            row.appendChild(phoneNumberCell);
-
-            const emailCell = document.createElement('td');
-            emailCell.textContent = user.email;
-            row.appendChild(emailCell);
-
-            const userImageCell = document.createElement('td');
-            const userImage = document.createElement('img');
-            userImage.src = user.user_image; // Adjust property name
-            userImage.alt = 'User Image';
-            userImage.style.width = '40px'; // Set width
-            userImage.style.height = '40px'; // Set height
-            userImageCell.appendChild(userImage);
-            row.appendChild(userImageCell);
-
-            userTableBody.appendChild(row);
-        });
-    };
-
-    fetchUsers();
-});
-interface User {
-    id: string;
-    FirstName: string;
-    LastName: string;
-    phone_number: string;
-    email: string;
-    user_image: string;
-}
-
-interface Project {
-    id: string;
-    projectName: string; // Ensure that projectName is correctly defined
-    description: string;
-    endDate: string;
-    assigned: boolean;
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    const userDropdown = document.getElementById('users') as HTMLSelectElement;
-    const projectDropdown = document.getElementById('projects') as HTMLSelectElement;
-
-    if (!userDropdown || !projectDropdown) {
-        console.error('Dropdown elements not found');
-        return;
-    }
-
-    console.log('Dropdown elements found, proceeding to fetch data...');
-
-    const fetchUsers = async (): Promise<void> => {
-        try {
-            console.log('Fetching users...');
-            const response = await fetch('http://localhost:5300/users/all-users?limit=5');
-            if (!response.ok) {
-                throw new Error('Failed to fetch users');
-            }
-            const data = await response.json();
-            const users: User[] = data.users;
-            console.log('Users fetched successfully:', users);
-            populateUserDropdown(users);
-        } catch (error) {
-            console.error('Error fetching users:', error);
-        }
-    };
-
-    const fetchProjects = async (): Promise<void> => {
-        try {
-            console.log('Fetching projects...');
-            const response = await fetch('http://localhost:5300/projects/all-projects?limit=5');
-            if (!response.ok) {
-                throw new Error('Failed to fetch projects');
-            }
-            const data = await response.json();
-            const projects: Project[] = data.projects;
-            console.log('Projects fetched successfully:', projects);
-            populateProjectDropdown(projects);
-        } catch (error) {
-            console.error('Error fetching projects:', error);
-        }
-    };
-
-    const populateUserDropdown = (users: User[]): void => {
-        console.log('Populating user dropdown...');
-        userDropdown.innerHTML = '';
-        users.forEach(user => {
-            const option = document.createElement('option');
-            option.value = user.id;
-            option.textContent = `${user.FirstName} ${user.LastName}`;
-            userDropdown.appendChild(option);
-        });
-    };
-
-    const populateProjectDropdown = (projects: Project[]): void => {
-        console.log('Populating project dropdown...');
-        projectDropdown.innerHTML = '';
-        projects.forEach(project => {
-            console.log('Adding project to dropdown:', project);
-            const option = document.createElement('option');
-            option.value = project.id;
-            option.textContent = project.projectName;
-            projectDropdown.appendChild(option);
-        });
-    };
+    let data = await options.json();   
     
 
-    fetchUsers();
-    fetchProjects();
-});
+    let display = data.users;
+    
+
+    let remover = document.querySelectorAll('#users .options');
+    remover.forEach(option => {
+      option.remove();
+    });
+
+    display.forEach((options: any) => {
+      
+      let option_created = document.createElement('option');
+      option_created.className = "options";
+      option_created.text = options.FirstName + ' ' + options.LastName;
+      option_created.value = options.id;
+      select_users.appendChild(option_created);
+    });
+  } catch (error) {
+    
+  }
+}
+
+displayOnUsersDropdown();
+
+async function displayOnProjectDropdown() {
+  try {
+    let options = await fetch('http://localhost:5300/projects/unassigned-projects', {
+      method: 'GET',
+      headers: {
+        "content-type": "application/json"
+      }
+    })
+
+    let data = await options.json();
+    
+
+    let display = data.un_assigned_projects.response;
+    
+
+    let remover = document.querySelectorAll('#projects .options');
+    remover.forEach(option => {
+      option.remove();
+    });
+
+    display.forEach((options: any) => {
+      
+      let option_created = document.createElement('option');
+      option_created.className = "options";
+      option_created.text = options.project_name;
+      option_created.value = options.project_id;
+      select_projects.appendChild(option_created);
+    });
+  } catch (error) {
+    
+  }
+}
+
+displayOnProjectDropdown();
+
+async function displayProjectsOnTables() {
+  try {
+    let options = await fetch('http://localhost:5300/projects/unassigned-projects', {
+      method: 'GET',
+      headers: {
+        "content-type": "application/json"
+      }
+    })
+
+    let data = await options.json();
+    
+
+    let display = data.un_assigned_projects.response;
+    
+
+    let allDeleter = document.querySelectorAll(
+      ".projects_table .table_data"
+    );
+    allDeleter.forEach((div) => {
+      div.remove();
+    });
+    
+
+    display.forEach((objectItem: any, index: number) => { 
+      
+
+      let table_row = document.createElement('tr');
+      
+      let loop = [objectItem.project_name, objectItem.project_description, objectItem.project_end_date];
+      for (let table_data = 0; table_data < 3; table_data++) {
+        let tableData = document.createElement('td');
+        tableData.className = 'table_data';
+        tableData.textContent = loop[table_data];
+        table_row.appendChild(tableData);
+      }
+
+      projects_table.appendChild(table_row);
+
+    });
+  } catch (error) {
+    console.log("error fetching data from database");
+  }
+}
+
+displayProjectsOnTables();
+
+async function displayUsersOnTables() {
+  try {
+    let options = await fetch('http://localhost:5300/users/unsigned-users ', {
+      method: 'GET',
+      headers: {
+        "content-type": "application/json"
+      }
+    })
+
+    let data = await options.json();    
+
+    let display = data.users;
+
+    let allDeleter = document.querySelectorAll(
+      ".projects_table .table_data"
+    );
+    allDeleter.forEach((div) => {
+      div.remove();
+    });
+    
+
+    display.forEach((objectItem: any, index: number) => { 
+      
+
+      let table_row = document.createElement('tr');
+      
+      let loop = [objectItem.FirstName, objectItem.LastName, objectItem.email];
+      for (let table_data = 0; table_data < 3; table_data++) {
+        let tableData = document.createElement('td');
+        tableData.className = 'table_data';
+        tableData.textContent = loop[table_data];
+        table_row.appendChild(tableData);
+      }
+
+      users_table.appendChild(table_row);
+
+    });
+  } catch (error) {
+    console.log("error fetching data from database");
+  }
+}
+
+displayUsersOnTables();
+
+
+
+async function AssignProjectFunction(project_id:string) {
+  
+  try {
+    let assign = await fetch(`http://localhost:5300/projects/assign-project/${project_id}`, {
+      method: 'PUT',
+      headers: {
+        "content-type": "application/json"
+      },
+    })
+    if (assign.ok) {
+      return assign.json();      
+    }
+  } catch (error) {
+    return {
+      error: error
+    }
+  }
+}
+
+async function AssignUserFunction(change: {}) {
+  try {
+    let changes = await fetch('http://localhost:5300/users/set-assigned', {
+      method: 'PUT',
+      headers: {
+        "content-type": "application/json"
+      },
+      body: JSON.stringify(change)
+    })
+
+    if (changes.ok) {
+      return changes.json();
+    }
+  } catch (error) {
+    return {
+      error: error
+    }
+  }
+}
+
+function activateAssignButton() {
+  assignbtn.addEventListener('click', () => {
+    let user_id = select_users.value;
+    let project_id = select_projects.value;
+  
+    let change = {
+      user_id,
+      project_id
+    }
+  
+    console.log("user_id: " + user_id);
+    console.log("project_assigned_to: " + project_id);
+    
+    AssignProjectFunction(project_id);
+    AssignUserFunction(change);
+  
+    displayOnUsersDropdown();
+    displayOnProjectDropdown();
+    displayProjectsOnTables();
+    displayUsersOnTables();
+    
+  })
+}
+activateAssignButton()
+
+function activateProjectsButton() {
+  projectsbtn.addEventListener('click', () => {
+    setTimeout(() => {
+      window.location.href = '../frontend/admin.html';
+    }, 2000);
+  })
+}
+
+activateProjectsButton();

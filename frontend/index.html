@@ -65,37 +65,25 @@
                 <div class="visibility-Area">
                     <div class="tables">
                         <div class="userTable">
-                            <p>User details</p>
-                            <table id="userTable">
-                                <thead>
-                                    <tr>
-                                        <th>First Name</th>
-                                        <th>Last Name</th>
-                                        <th>Phone Number</th>
-                                        <th>Email</th>
-                                        <th>User Image</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <!-- Dynamic rows will be inserted here -->
-                                </tbody>
+                            <p>Users (Not Assigned)*</p>
+                            <table class="users_table">
+                                <tr>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Email</th>
+                                </tr>
                             </table>
                         </div>
                         
                         <div class="userTable">
-                            <p>Project details</p>
-                            <table id="projectTable">
-                                <thead>
-                                    <tr>
-                                        <th>Project Name</th>
-                                        <th>Project Description</th>
-                                        <th>Project End Date</th>
-                                        <th>Project Assigned</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <!-- Dynamic rows will be inserted here -->
-                                </tbody>
+                            <p>Projects (Not Assigned)*</p>
+                            <table class="projects_table">
+                                <tr>
+                                    
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                    <th>End Date</th>
+                                </tr>
                             </table>
                         </div>
                     </div>
@@ -104,58 +92,21 @@
                             <div class="userDropDown">
                                 <label for="users">Choose a user:</label>
                                 <select name="users" id="users">
-                                    
                                 </select>
                             </div>
                             <div class="projectDropDown">
                                 <label for="projects">Choose a project:</label>
                                 <select name="projects" id="projects">
-                                    
                                 </select>
                             </div>
                         </div>
-                        <button>Assign project</button>
+                        <button class="assignbtn">Assign project</button>
                     </div>
                 </div>
                 <!-- Add these elements if they don't exist -->
                 <div id="current-date-time"></div>
                 <div id="welcome-name"></div>
             </div>
-        </div>
-    </div>
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Project Details</h2>
-            <table>
-                <tr>
-                    <th>Select</th>
-                    <th>Project Name</th>
-                    <th>Description</th>
-                    <th>Status</th>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="selectModalProject" value="1"></td>
-                    <td>Project A</td>
-                    <td>Development of A</td>
-                    <td>In Progress</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="selectModalProject" value="2"></td>
-                    <td>Project B</td>
-                    <td>Development of B</td>
-                    <td>Completed</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="selectModalProject" value="3"></td>
-                    <td>Project C</td>
-                    <td>Development of C</td>
-                    <td>Not Started</td>
-                </tr>
-            </table>
-            <button class="button">Create New Project</button>
-            <button class="button">Update Project</button>
-            <button class="button">Delete Project</button>
         </div>
     </div>
     <script type="module" src="./dist/userlogout.js"></script>

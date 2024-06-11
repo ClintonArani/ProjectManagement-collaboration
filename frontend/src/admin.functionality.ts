@@ -2,16 +2,6 @@
 let dynamic_body = document.querySelector(".dynamic-body") as HTMLDivElement;
 
 //creating a project inorder to assign to user
-function displayAll() {
-  let pr = new Promise(async (resolve, reject) => {
-    let x = await fetch("http://localhost:5302/projects/all-projects")
-      
-    console.log(x.json());
-    
-  });
-}
-
-displayAll();
 
 let project_name = document.querySelector(".project_name") as HTMLInputElement;
 let project_description = document.querySelector(
@@ -27,6 +17,24 @@ let cancelbtn = document.querySelector(".cancel") as HTMLButtonElement;
 let new_project = document.querySelector(".button") as HTMLButtonElement;
 let popup = document.querySelector(".promt-user-conatainer") as HTMLDivElement;
 
+//Updating Functionalities
+
+let update_display = document.querySelector('.promt-user-conatainer1') as HTMLDivElement;
+
+let updated_project_name = document.querySelector(
+  ".project_name1"
+) as HTMLInputElement;
+let updated_project_description = document.querySelector(
+  ".project_description1"
+) as HTMLInputElement;
+let updated_project_end_date = document.querySelector(
+  ".project_end_date1"
+) as HTMLInputElement;
+let updated_submitbtn = document.querySelector(
+  ".submit_button1"
+) as HTMLButtonElement;
+let updated_cancelbtn = document.querySelector('.cancel1') as HTMLButtonElement;
+
 new_project.addEventListener("click", () => {
   popup.style.display = "flex";
 });
@@ -35,12 +43,11 @@ cancelbtn.addEventListener("click", () => {
   popup.style.display = "none";
 });
 
-submitbtn.addEventListener("submit", (event) => {
-  console.log("I am clicked");
+submitbtn.addEventListener('click', (event) => {  
 
   let p_name = project_name.value.trim();
-  let p_description = project_name.value.trim();
-  let p_end_date = project_name.value.trim();
+  let p_description = project_description.value.trim();
+  let p_end_date = project_end_date.value.trim();
 
   let isValid = p_name != "" && p_description != "" && p_end_date != "";
 
@@ -51,16 +58,37 @@ submitbtn.addEventListener("submit", (event) => {
       project_end_date: p_end_date,
     };
 
-    createNewProject(projectDetails);
+    createProject(projectDetails);
+    popup.style.display = "none";
+    displayAllProjects();
   } else {
     //else block for if input is null
   }
 });
 
+async function createProject(new_project: {}) {
+  try {
+    let creation = await fetch('http://localhost:5300/projects/new-project', {
+      method: 'POST',
+      headers: {
+        "content-type": "application/json"
+      },
+      body: JSON.stringify(new_project)
+    })
+    if (creation.ok) {
+      return creation.json()
+    }
+  } catch (error) {
+    return {
+      error: error
+    }
+  }
+}
+
 
 async function displayAllProjects() {
   try {
-    let data = await fetch("http://localhost:5302/projects/all-projects", {
+    let data = await fetch("http://localhost:5300/projects/all-projects", {
       headers: {
         "content-type": "application/json"
       },
@@ -73,14 +101,18 @@ async function displayAllProjects() {
 
     let dataFetched = await data.json();
 
+    let iterator = dataFetched.projects;
+    
+
     let allDeleter = document.querySelectorAll(
       ".dynamic-body .activity-diagram"
     );
     allDeleter.forEach((div) => {
       div.remove();
-    });
+    });    
 
-    dataFetched.forEach((objectItem: any, index: number) => {
+    iterator.forEach((objectItem: any, index: number) => {
+      
       let activityDiagram = document.createElement("div");
       activityDiagram.className = "activity-diagram";
 
@@ -112,7 +144,7 @@ async function displayAllProjects() {
       assigned_to_holder.className = "assigned_to_holder";
 
       let assigned_to = document.createElement("p");
-      assigned_to.textContent = "......";
+      assigned_to.textContent = "... no assigned user yet ...";
 
       let buttons_holder = document.createElement("div");
       buttons_holder.className = "buttons_holder";
@@ -142,24 +174,17 @@ async function displayAllProjects() {
       deletebtn.addEventListener("click", () => {
         let myNuber = objectItem.project_id;
         deleteAnItem(myNuber);
+        displayAllProjects()
       });
 
       updatebtn.addEventListener("click", () => {
-        let myId = objectItem.project_id;
         // first display the form then ...
 
-        let updated_project_name = document.querySelector(
-          ".project_name"
-        ) as HTMLInputElement;
-        let updated_project_description = document.querySelector(
-          ".project_description"
-        ) as HTMLInputElement;
-        let updated_project_end_date = document.querySelector(
-          ".project_end_date"
-        ) as HTMLInputElement;
-        let updated_submitbtn = document.querySelector(
-          ".submit_button"
-        ) as HTMLButtonElement;
+        update_display.style.display = 'flex'
+
+        updated_project_name.value = objectItem.project_name;
+        updated_project_description.value = objectItem.project_description;
+        updated_project_end_date.value = objectItem.project_end_date;
 
         //display
 
@@ -168,8 +193,16 @@ async function displayAllProjects() {
           objectItem.project_description;
         updated_project_end_date.textContent = objectItem.project_end_date;
 
-        updated_submitbtn.addEventListener("submit", (e) => {
+        updated_cancelbtn.addEventListener('click', () => {
+          update_display.style.display = 'none'
+        })
+
+        updated_submitbtn.addEventListener('click', (e) => {
+          
           e.preventDefault();
+
+          console.log('i am clicked');
+          let myId = objectItem.project_id;
 
           let u_project_name = updated_project_name.value.trim();
           let u_project_description = updated_project_description.value.trim();
@@ -186,10 +219,13 @@ async function displayAllProjects() {
               project_description: u_project_description,
               project_end_date: u_project_end_date,
             };
-
             updateAnItem(myId, updatedObject);
+            update_display.style.display = 'none';
+            displayAllProjects();
+
           } else {
-            //else clause lies here
+            console.log("//else clause lies here");
+            
           }
         });
       });
@@ -199,11 +235,13 @@ async function displayAllProjects() {
   }
 }
 
+displayAllProjects();
+
 function deleteAnItem(id: string) {
   let deletingVar = new Promise<any>(async (resolve, reject) => {
     try {
       let mainDeleter = await fetch(
-        `http://localhost:5302/projects/delete-project/${id}`,
+        `http://localhost:5300/projects/delete-project/${id}`,
         {
           method: "DELETE",
         }
@@ -212,7 +250,7 @@ function deleteAnItem(id: string) {
       resolve(mainDeleter);
 
       if (mainDeleter.ok) {
-        // displayAllProjects();
+        displayAllProjects();
       } else {
         console.log("There was an error in deleting the project");
       }
@@ -222,28 +260,12 @@ function deleteAnItem(id: string) {
   });
 }
 
-async function createNewProject(project: any) {
-  try {
-    let response = await fetch("http://localhost:5302/projects/new-project", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(project),
-    }).then((res) => {
-      res.json();
-    });
-  } catch (error) {
-    console.log("Error creating a project.");
-  }
-}
-
 async function updateAnItem(myId: string, updatedObject: {}) {
   try {
     let result = await fetch(
-      `http://localhost:5302/projects/update-project/${myId}`,
+      `http://localhost:5300/projects/update-project/${myId}`,
       {
-        method: "POST",
+        method: 'PUT',
         headers: {
           "content-type": "application/json",
         },
