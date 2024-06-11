@@ -1,4 +1,4 @@
---  USE projectmanagement;
+ USE projectmanagement;
 
 create table project_table(
 	project_id varchar(255) primary key  not null,
