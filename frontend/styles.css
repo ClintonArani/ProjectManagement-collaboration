@@ -424,7 +424,12 @@ table tr:hover {
     margin: 5px;
 }
 
-
+.closebtn{
+    font-size: xx-large;
+    font-family: elephant;
+    margin-left: 20px;
+    color: #fff;
+}
 
 /* Media queries for responsiveness */
 @media (max-width: 768px) {

@@ -15,10 +15,11 @@
   <body>
     <div class="main" style="background-color: hsl(0, 0%, 84%); height: auto;">
       <div class="topbar" style="height: 10vh">
+        <p class="closebtn" id="closebtn">X</p>
         <h3 style="font-size: 26px">Project Management System</h3>
         <i id="mailMessage" class="fa fa-envelope" aria-hidden="true"></i>
         <div class="profile-area">
-          <img src="./icons/profile.png" alt="" style="background-color: #fefefe;"/>
+          <img id="profile-image" src="" alt="" style="background-color: #fefefe;"/>
         </div>
       </div>
 
@@ -78,6 +79,17 @@
         </form>
       </div>
     </div>
+    <script>
+
+      const closeButton = document.getElementById('closebtn')
+      if (closeButton) {
+        closeButton.addEventListener('click', () => {
+              window.location.href = 'index.html';
+        });
+      }
+  </script>
     <script src="./dist/admin.functionality.js"></script>
+    <script type="module" src="./dist/users.js"></script>
+    <script type="module" src="./dist/admin.js"></script>
   </body>
 </html>

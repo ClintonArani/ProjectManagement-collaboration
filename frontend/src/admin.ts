@@ -246,3 +246,12 @@ function activateProjectsButton() {
 }
 
 activateProjectsButton();
+
+
+//close redirect button
+const closebtn = document.getElementById('closebtn') as HTMLParagraphElement
+    if (closebtn) {
+        closebtn.addEventListener('click', () => {
+            window.location.href = 'index.html';
+        });
+    }   
