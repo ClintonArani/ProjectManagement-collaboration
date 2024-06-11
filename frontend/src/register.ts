@@ -81,7 +81,7 @@ registrationForm.addEventListener("submit", (e) => {
 });
 
 function navigateToLogin() {
-    window.location.href = 'log.html';
+    window.location.href = './log.html';
 }
 function fetchAndDisplayUserName() {
     // Retrieve user ID from local storage
